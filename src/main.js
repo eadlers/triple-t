@@ -34,7 +34,6 @@ const fmt = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(
 const pick = (arr) => arr[(Math.random() * arr.length) | 0];
 const TUNG_CALL = 'Tung tung tung tung tung tung tung tung tung sahur!';
 const DEATH_TITLES = ['TE ATRAPÓ', 'TRIPLE T TE ENCONTRÓ', 'TE HICIERON SAHUR', 'TE AGARRARON DESPREVENIDO', 'DESPERTASTE PARA EL SAHUR'];
-const CLOSE_LINES = ['AAAAAAAAAA', '¡LO TENGO DETRÁS!', '¡TRIPLE T ME VA A AGARRAR!', 'no no no no no'];
 const RANKS = [
   [30, 'Dormilón'], [60, 'Se saltó el sahur'], [120, 'Turista de los Backrooms'],
   [240, 'Corredor profesional'], [480, 'Certificado por Naruto'], [Infinity, 'La peor pesadilla de Triple T'],
@@ -466,8 +465,7 @@ function updateGame(dt) {
   g.chaseLineTimer -= dt;
   if (g.chaseLineTimer <= 0) {
     g.chaseLineTimer = 6 + Math.random() * 3;
-    if (t.dist < 5) say(pick(CLOSE_LINES), { panic: true });
-    else if (t.dist < 18) say(pick(lines.chase), { panic: true });
+    if (t.dist < 18) say(pick(lines.chase), { panic: true });
     else say(pick(lines.idle), { duration: 3.2 });
   }
 
