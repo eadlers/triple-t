@@ -6,7 +6,7 @@ export const AVATARS = [
   {
     id: 'chomp',
     name: 'Chomp',
-    tagline: 'Polerón negro de ajedrez. Calcula cada ruta de escape.',
+    tagline: 'Virgen y fanatico del ajedrez. Calcula cada ruta de escape',
     skin: '#c08a63', hair: '#16110e', hairStyle: 'short', brows: '#14100c',
     top: 'hoodie', topColor: '#18181b', pants: '#2b3953', legs: 'long', shoes: '#ebe8e2',
     facial: 'light', smile: 'grin',
@@ -20,7 +20,7 @@ export const AVATARS = [
   {
     id: 'pechar',
     name: 'Pechar',
-    tagline: 'Realeza de pelo rizado. La corona nunca se la quita.',
+    tagline: 'El mas gordo de lima',
     skin: '#e3b08b', hair: '#4a2e1d', hairStyle: 'curly', brows: '#3a2416',
     top: 'tee', topColor: '#cf6a40', pants: '#8c8e97', legs: 'shorts', shoes: '#26262a',
     facial: 'stubble', smile: 'big', crown: true, bracelets: true, fat: true,
@@ -34,7 +34,7 @@ export const AVATARS = [
   {
     id: 'li',
     name: 'Li',
-    tagline: 'Pelo para atrás, camisa a rayas, barba de acero.',
+    tagline: 'Literalmente Triple T',
     skin: '#bd7944', hair: '#8a6a4b', hairStyle: 'swept', brows: '#5b4130',
     top: 'striped', topColor: '#dcd2b6', pants: '#2a2a2f', legs: 'long', shoes: '#3b3027',
     facial: 'beard', beard: '#5a3f2c', smile: 'smirk', bracelets: true,
