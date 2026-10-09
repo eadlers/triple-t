@@ -3,7 +3,9 @@
 A third-person backrooms survival game built with three.js. You're lost in procedurally generated
 backrooms while **Tung Tung Tung Sahur** hunts you. Survive as long as you can.
 
-## Run it
+**Play it:** https://eadlers.github.io/triple-t/
+
+## Run it locally
 
 ES modules need to be served over HTTP (opening `index.html` from disk won't work):
 
