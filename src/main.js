@@ -302,7 +302,6 @@ window.addEventListener('keydown', (e) => {
   if (e.code.startsWith('Arrow') || e.code === 'Space') e.preventDefault();
   if (mode === 'menu' && e.code === 'Enter') startGame();
   if (mode === 'playing' && e.code === 'KeyP') pause();
-  if (mode === 'cutscene' && (e.code === 'Space' || e.code === 'Enter' || e.code === 'Escape')) endCutscene(true);
 });
 window.addEventListener('keyup', (e) => { keys[e.code] = false; });
 window.addEventListener('blur', () => {
@@ -313,9 +312,6 @@ canvas.addEventListener('mousedown', () => {
   if (mode === 'playing' && !document.pointerLockElement) lockPointer();
 });
 window.addEventListener('mouseup', () => { dragging = false; });
-window.addEventListener('pointerdown', () => {
-  if (mode === 'cutscene' && game.cutscene.t > 0.5) endCutscene(true);
-});
 window.addEventListener('mousemove', (e) => {
   if (mode !== 'playing') return;
   if (document.pointerLockElement !== canvas && !dragging) return;
@@ -596,11 +592,11 @@ function startCutscene() {
   g.cutscene = new LiCutscene({ scene: g.scene, world: g.world, camera, audio, av: g.av, tung: g.tung });
 }
 
-// Watching the whole conversion earns the special ending; skipping it gets Li's normal death line.
-function endCutscene(skipped = false) {
+// Li's conversion always plays to the end, then gets its own game-over title and quote.
+function endCutscene() {
   if (mode !== 'cutscene') return;
   game.cutscene.dispose();
-  gameOver(skipped ? {} : { title: 'CONVERTIDO', quip: 'Siempre fue un tronco.' });
+  gameOver({ title: 'CONVERTIDO', quip: 'Siempre fue un tronco.' });
 }
 
 function gameOver(special = {}) {
@@ -655,7 +651,7 @@ function frame(dt) {
     placeBubble();
   }
   else if (mode === 'caught') updateJumpscare(dt);
-  else if (mode === 'cutscene' && game.cutscene.update(dt)) endCutscene(false);
+  else if (mode === 'cutscene' && game.cutscene.update(dt)) endCutscene();
   renderer.render(game.scene, camera);
 }
 
