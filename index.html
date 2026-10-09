@@ -7,14 +7,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  <script>
+    // GitHub Pages lets browsers cache files for 10 minutes. Loading the game's own CSS and modules
+    // with a fresh ?v= on every page load means a normal refresh always picks up the latest deploy.
+    (() => {
+      const v = Date.now().toString(36);
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = `style.css?v=${v}`;
+      document.head.appendChild(css);
+      const imports = {
+        three: 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js',
+        'three/addons/': 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/',
+      };
+      for (const m of ['main', 'world', 'avatars', 'tung', 'audio', 'textures', 'cutscene']) {
+        imports[`./src/${m}.js`] = `./src/${m}.js?v=${v}`;
       }
-    }
+      const map = document.createElement('script');
+      map.type = 'importmap';
+      map.textContent = JSON.stringify({ imports });
+      document.head.appendChild(map);
+    })();
   </script>
 </head>
 <body>
@@ -88,6 +101,6 @@
     <button id="menuBtn" class="ghost">Cambiar personaje</button>
   </div>
 
-  <script type="module" src="src/main.js"></script>
+  <script type="module">import './src/main.js';</script>
 </body>
 </html>
