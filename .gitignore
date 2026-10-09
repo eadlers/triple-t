@@ -1,0 +1,6 @@
+# Private photos used as references for the avatars; never publish these.
+Images/
+# Local tooling and build output
+.claude/
+dist/
+.DS_Store
