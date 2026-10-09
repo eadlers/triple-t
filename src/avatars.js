@@ -13,7 +13,7 @@ export const AVATARS = [
     lines: {
       chase: ['Necesito amigos'],
       escape: ['Casi me hacen jaque pastor'],
-      idle: ['Algunas mujeres por aqui?'],
+      idle: ['Conozco 0 mujeres'],
       death: ['Me enrocaron'],
     },
   },
